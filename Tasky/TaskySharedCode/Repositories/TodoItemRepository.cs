@@ -72,9 +72,9 @@ namespace Tasky.Shared.Repositories
 			return me.db.AddItem(item);
 		}
 
-		public static int DeleteTask(int id)
+		public static int DeleteTask(TodoItem item)
 		{
-			return me.db.DeleteItem(id);
+			return me.db.DeleteItem(item);
 		}
 	}
 }

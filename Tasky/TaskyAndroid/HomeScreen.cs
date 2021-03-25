@@ -1,13 +1,12 @@
-using System.Collections.Generic;
 using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Widget;
-using Tasky.Shared;
 using TaskyAndroid.ApplicationLayer;
 using Android.Content.PM;
-using Tasky.Shared.Models;
 using System;
+using Tasky.Shared.ViewModels;
+using System.Collections.Specialized;
 
 namespace TaskyAndroid.Screens 
 {
@@ -19,10 +18,11 @@ namespace TaskyAndroid.Screens
 		MainLauncher = true,
 		ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation,
 		ScreenOrientation = ScreenOrientation.Portrait)]
-	public class HomeScreen : Activity 
+	public class HomeScreen : Activity
 	{
+		TodoItemViewModel viewModel;
+
 		TodoItemListAdapter taskList;
-		IList<TodoItem> tasks;
 		Button addTaskButton;
 		ListView taskListView;
 		
@@ -32,6 +32,9 @@ namespace TaskyAndroid.Screens
 
 			// set our layout to be the home screen
 			SetContentView(Resource.Layout.HomeScreen);
+
+			// Initialize view model
+			viewModel = new TodoItemViewModel();
 
 			//Find our controls
 			taskListView = FindViewById<ListView> (Resource.Id.TaskList);
@@ -48,7 +51,7 @@ namespace TaskyAndroid.Screens
 			if(taskListView != null) {
 				taskListView.ItemClick += (object sender, AdapterView.ItemClickEventArgs e) => {
 					var taskDetails = new Intent (this, typeof (TodoItemScreen));
-					taskDetails.PutExtra ("TaskID", tasks[e.Position].ID);
+					taskDetails.PutExtra ("TaskID", viewModel.TodoItemCollection[e.Position].ID);
 					StartActivity (taskDetails);
 				};
 			}
@@ -56,17 +59,23 @@ namespace TaskyAndroid.Screens
 		
 		protected override void OnResume ()
 		{
-			base.OnResume ();
+			base.OnResume();
 
-			Console.WriteLine("onResume()");
-
-			tasks = TodoItemManager.GetTasks();
-			
 			// create our adapter
-			taskList = new TodoItemListAdapter(this, tasks);
+			taskList = new TodoItemListAdapter(this, viewModel.TodoItemCollection);
 
 			//Hook up our adapter to our ListView
 			taskListView.Adapter = taskList;
+
+			viewModel.GetTasks();
+
+			viewModel.TodoItemCollection.CollectionChanged += OnItemCollectionChanged;
 		}
+
+		private void OnItemCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+			Console.WriteLine("collection changed");
+		}
+
 	}
 }

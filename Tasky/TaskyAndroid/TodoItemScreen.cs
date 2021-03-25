@@ -4,6 +4,7 @@ using Android.OS;
 using Android.Widget;
 using Tasky.Shared;
 using Tasky.Shared.Models;
+using Tasky.Shared.ViewModels;
 
 namespace TaskyAndroid.Screens 
 {
@@ -26,7 +27,7 @@ namespace TaskyAndroid.Screens
 			
 			int taskID = Intent.GetIntExtra("TaskID", 0);
 			if(taskID > 0) {
-				task = TodoItemManager.GetTask(taskID);
+				task = TodoItemViewModel.GetTask(taskID);
 			}
 			
 			// set our layout to be the home screen
@@ -60,14 +61,14 @@ namespace TaskyAndroid.Screens
 			//TODO: 
 			task.Done = doneCheckbox.Checked;
 
-			TodoItemManager.SaveTask(task);
+			TodoItemViewModel.SaveTask(task);
 			Finish();
 		}
 		
 		void CancelDelete()
 		{
 			if (task.ID != 0) {
-				TodoItemManager.DeleteTask(task.ID);
+				TodoItemViewModel.DeleteTask(task);
 			}
 			Finish();
 		}

@@ -6,6 +6,7 @@ using MonoTouch.Dialog;
 using Tasky.Shared;
 using Tasky.ApplicationLayer;
 using Tasky.Shared.Models;
+using Tasky.Shared.ViewModels;
 
 namespace Tasky.Screens {
 
@@ -49,13 +50,13 @@ namespace Tasky.Screens {
 			currentItem.Notes = taskDialog.Notes;
 			// TODO: show the completion status in the UI
 			currentItem.Done = taskDialog.Done;
-			TodoItemManager.SaveTask(currentItem);
+			TodoItemViewModel.SaveTask(currentItem);
 			NavigationController.PopViewController (true);
 		}
 		public void DeleteTask ()
 		{
 			if (currentItem.ID >= 0)
-				TodoItemManager.DeleteTask (currentItem.ID);
+				TodoItemViewModel.DeleteTask (currentItem);
 			NavigationController.PopViewController (true);
 		}
 
@@ -69,7 +70,7 @@ namespace Tasky.Screens {
 		
 		protected void PopulateTable()
 		{
-			tasks = TodoItemManager.GetTasks().ToList ();
+			tasks = TodoItemViewModel.GetTasks().ToList ();
 //			var rows = from t in tasks
 //				select (Element)new StringElement ((t.Name == "" ? "<new task>" : t.Name), t.Notes);
 			// TODO: use this element, which displays a 'tick' when item is completed
@@ -90,7 +91,7 @@ namespace Tasky.Screens {
 		}
 		public void DeleteTaskRow(int rowId)
 		{
-			TodoItemManager.DeleteTask(tasks[rowId].ID);
+			TodoItemViewModel.DeleteTask(tasks[rowId]);
 		}
 	}
 }

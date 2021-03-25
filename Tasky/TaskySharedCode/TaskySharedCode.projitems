@@ -11,8 +11,8 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Daos\TodoDatabaseDao.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\TodoItem.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)TodoItemManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Repositories\TodoItemRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\TodoItemViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Models\" />

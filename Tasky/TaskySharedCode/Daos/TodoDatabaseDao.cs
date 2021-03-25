@@ -54,9 +54,9 @@ namespace Tasky.Shared.Daos
 			return result;
 		}
 
-		public int DeleteItem(int id) 
+		public int DeleteItem(TodoItem item) 
 		{
-			int result = connection.Delete(id);
+			int result = connection.Delete(item);
 
 			Console.WriteLine(string.Format("{0} record(s) deleted;)", result));
 			return result;
