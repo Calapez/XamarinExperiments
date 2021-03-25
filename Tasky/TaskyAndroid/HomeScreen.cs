@@ -4,9 +4,10 @@ using Android.Content;
 using Android.OS;
 using Android.Widget;
 using Tasky.Shared;
-using TaskyAndroid;
 using TaskyAndroid.ApplicationLayer;
 using Android.Content.PM;
+using Tasky.Shared.Models;
+using System;
 
 namespace TaskyAndroid.Screens 
 {
@@ -56,6 +57,8 @@ namespace TaskyAndroid.Screens
 		protected override void OnResume ()
 		{
 			base.OnResume ();
+
+			Console.WriteLine("onResume()");
 
 			tasks = TodoItemManager.GetTasks();
 			

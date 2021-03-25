@@ -3,7 +3,7 @@ using Android.Content;
 using Android.OS;
 using Android.Widget;
 using Tasky.Shared;
-using TaskyAndroid;
+using Tasky.Shared.Models;
 
 namespace TaskyAndroid.Screens 
 {

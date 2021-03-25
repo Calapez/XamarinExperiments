@@ -2,6 +2,7 @@ using System;
 using UIKit;
 using Tasky.Shared;
 using MonoTouch.Dialog;
+using Tasky.Shared.Models;
 
 namespace Tasky.ApplicationLayer 
 {

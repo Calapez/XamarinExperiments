@@ -5,6 +5,7 @@ using UIKit;
 using MonoTouch.Dialog;
 using Tasky.Shared;
 using Tasky.ApplicationLayer;
+using Tasky.Shared.Models;
 
 namespace Tasky.Screens {
 

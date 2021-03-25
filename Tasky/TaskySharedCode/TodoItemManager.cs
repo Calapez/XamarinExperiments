@@ -1,5 +1,6 @@
-using System;
 using System.Collections.Generic;
+using Tasky.Shared.Models;
+using Tasky.Shared.Repositories;
 
 namespace Tasky.Shared 
 {
@@ -8,28 +9,25 @@ namespace Tasky.Shared
 	/// </summary>
 	public static class TodoItemManager 
 	{
-		static TodoItemManager ()
-		{
-		}
 		
 		public static TodoItem GetTask(int id)
 		{
-			return TodoItemRepositoryADO.GetTask(id);
+			return TodoItemRepository.GetTask(id);
 		}
 		
 		public static IList<TodoItem> GetTasks ()
 		{
-			return new List<TodoItem>(TodoItemRepositoryADO.GetTasks());
+			return new List<TodoItem>(TodoItemRepository.GetTasks());
 		}
 		
 		public static int SaveTask (TodoItem item)
 		{
-			return TodoItemRepositoryADO.SaveTask(item);
+			return TodoItemRepository.SaveTask(item);
 		}
 		
 		public static int DeleteTask(int id)
 		{
-			return TodoItemRepositoryADO.DeleteTask(id);
+			return TodoItemRepository.DeleteTask(id);
 		}
 	}
 }

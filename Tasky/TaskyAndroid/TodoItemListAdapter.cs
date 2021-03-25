@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Android.App;
 using Android.Widget;
-using Tasky.Shared;
+using Tasky.Shared.Models;
 
 namespace TaskyAndroid.ApplicationLayer 
 {
