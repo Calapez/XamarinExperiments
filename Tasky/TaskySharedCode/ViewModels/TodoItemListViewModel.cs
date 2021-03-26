@@ -81,15 +81,29 @@ namespace Tasky.Shared.ViewModels
 			item1.Done = false;
 
 			var item2 = new TodoItem();
-			item1.ID = 20;
-			item1.Name = "Name 20";
-			item1.Notes = "Notes 20";
-			item1.Done = false;
+			item2.ID = 20;
+			item2.Name = "Name 20";
+			item2.Notes = "Notes 20";
+			item2.Done = true;
+
+			var item3 = new TodoItem();
+			item3.ID = 30;
+			item3.Name = "Name 30";
+			item3.Notes = "Notes 30";
+			item3.Done = true;
+
+			var item4 = new TodoItem();
+			item4.ID = 40;
+			item4.Name = "Name 40";
+			item4.Notes = "Notes 40";
+			item4.Done = false;
 
 			return new List<TodoItem>()
 		{
 			item1,
-			item2
+			item2,
+			item3, 
+			item4
 		};
 
 		}
