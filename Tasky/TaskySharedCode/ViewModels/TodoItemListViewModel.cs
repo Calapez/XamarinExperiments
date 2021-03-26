@@ -17,7 +17,7 @@ namespace Tasky.Shared.ViewModels
 
 		public TodoItemListViewModel()
         {
-			NavigationService = Mvx.Resolve<IMvxNavigationService>();
+			NavigationService = Mvx.IoCProvider.GetSingleton<IMvxNavigationService>();
 			TodoItemCollection = new List<TodoItem>();
 
 			GetTasks();
@@ -44,6 +44,13 @@ namespace Tasky.Shared.ViewModels
 
 		public void GetTasks()
 		{
+			TodoItemCollection.Clear();
+			foreach (TodoItem item in DefaultItems())
+			{
+				TodoItemCollection.Add(item);
+			}
+
+			/*
 			var items = TodoItemRepository.GetTasks();
 
 			TodoItemCollection.Clear();
@@ -51,6 +58,7 @@ namespace Tasky.Shared.ViewModels
             {
 				TodoItemCollection.Add(item);
             }
+			*/
 		}
 
 		public static int SaveTask(TodoItem item)
@@ -63,6 +71,28 @@ namespace Tasky.Shared.ViewModels
 			return TodoItemRepository.DeleteTask(item);
 		}
 		#endregion
+
+		public List<TodoItem> DefaultItems()
+		{
+			var item1 = new TodoItem();
+			item1.ID = 10;
+			item1.Name = "Name 10";
+			item1.Notes = "Notes 10";
+			item1.Done = false;
+
+			var item2 = new TodoItem();
+			item1.ID = 20;
+			item1.Name = "Name 20";
+			item1.Notes = "Notes 20";
+			item1.Done = false;
+
+			return new List<TodoItem>()
+		{
+			item1,
+			item2
+		};
+
+		}
 	}
 
 	/*

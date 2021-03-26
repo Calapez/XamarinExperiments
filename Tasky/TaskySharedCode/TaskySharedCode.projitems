@@ -10,6 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)App.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AppStart.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Daos\TodoDatabaseDao.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\TodoItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Repositories\TodoItemRepository.cs" />

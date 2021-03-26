@@ -11,6 +11,7 @@ namespace Tasky.Shared
     {
         public override void Initialize()
         {
+            //RegisterCustomAppStart<AppStart>();
             RegisterAppStart<TodoItemListViewModel>();
         }
     }

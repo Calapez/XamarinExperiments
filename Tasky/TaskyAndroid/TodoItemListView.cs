@@ -14,12 +14,8 @@ namespace TaskyAndroid.Screens
 	/// <summary>
 	/// Main ListView screen displays a list of tasks, plus an [Add] button
 	/// </summary>
-	[Activity (Label = "Tasky",  
-		Icon="@drawable/icon",
-		MainLauncher = true,
-		ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation,
-		ScreenOrientation = ScreenOrientation.Portrait)]
-	public class HomeScreen : MvxActivity
+	[Activity(Label = "Home Screen", ScreenOrientation = ScreenOrientation.Portrait)]
+	public class TodoItemListView : MvxActivity
 	{
 		Button addTaskButton;
 

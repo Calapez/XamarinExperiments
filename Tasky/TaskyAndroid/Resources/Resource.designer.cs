@@ -7384,13 +7384,16 @@ namespace TaskyAndroid
 			public const int select_dialog_singlechoice_material = 2131427400;
 			
 			// aapt resource value: 0x7F0B0049
-			public const int support_simple_spinner_dropdown_item = 2131427401;
+			public const int SplashScreen = 2131427401;
 			
 			// aapt resource value: 0x7F0B004A
-			public const int TaskDetails = 2131427402;
+			public const int support_simple_spinner_dropdown_item = 2131427402;
 			
 			// aapt resource value: 0x7F0B004B
-			public const int TaskListItem = 2131427403;
+			public const int TaskDetails = 2131427403;
+			
+			// aapt resource value: 0x7F0B004C
+			public const int TaskListItem = 2131427404;
 			
 			static Layout()
 			{
