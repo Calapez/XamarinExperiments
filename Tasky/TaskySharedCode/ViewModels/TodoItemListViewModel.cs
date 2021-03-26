@@ -1,16 +1,31 @@
-﻿using MvvmCross.ViewModels;
+﻿using MvvmCross;
+using MvvmCross.Commands;
+using MvvmCross.Navigation;
+using MvvmCross.ViewModels;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Windows.Input;
 using Tasky.Shared.Models;
 using Tasky.Shared.Repositories;
 
 namespace Tasky.Shared.ViewModels
 {
-    class TodoItemViewModel : MvxViewModel
+    public class TodoItemListViewModel : MvxViewModel
     {
 
+		readonly IMvxNavigationService NavigationService;
+
+		public TodoItemListViewModel()
+        {
+			NavigationService = Mvx.Resolve<IMvxNavigationService>();
+			TodoItemCollection = new List<TodoItem>();
+
+			GetTasks();
+		}
+
 		#region Properties
-		private ObservableCollection<TodoItem> _todoItemCollection = new ObservableCollection<TodoItem>();
-		public ObservableCollection<TodoItem> TodoItemCollection
+		private List<TodoItem> _todoItemCollection;
+		public List<TodoItem> TodoItemCollection
 		{
 			get { return _todoItemCollection; }
 			set 
@@ -49,4 +64,17 @@ namespace Tasky.Shared.ViewModels
 		}
 		#endregion
 	}
+
+	/*
+	public class TodoItemElement : TodoItem
+    {
+		public TodoItemElement(TodoItemListViewModel parent) : base()
+        {
+			//OpenCommand = new MvxCommand(() => parent.NavigationService.Navigate(nameof(TodoItemDetailsViewModel)));
+        }
+
+		public ICommand OpenCommand { get; private set; }
+
+    }
+	*/
 }

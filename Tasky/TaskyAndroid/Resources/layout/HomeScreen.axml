@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
@@ -8,8 +9,12 @@
         android:text="Add any Task"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" />
-    <ListView
+    
+    <MvxListView
         android:id="@+id/TaskList"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent" />
+        android:layout_height="fill_parent"
+        local:MvxItemTemplate="@layout/tasklistitem"
+        local:MvxBind="ItemsSource TodoItemCollection" />
+
 </LinearLayout>

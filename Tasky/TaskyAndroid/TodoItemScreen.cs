@@ -27,7 +27,7 @@ namespace TaskyAndroid.Screens
 			
 			int taskID = Intent.GetIntExtra("TaskID", 0);
 			if(taskID > 0) {
-				task = TodoItemViewModel.GetTask(taskID);
+				task = TodoItemListViewModel.GetTask(taskID);
 			}
 			
 			// set our layout to be the home screen
@@ -61,14 +61,14 @@ namespace TaskyAndroid.Screens
 			//TODO: 
 			task.Done = doneCheckbox.Checked;
 
-			TodoItemViewModel.SaveTask(task);
+			TodoItemListViewModel.SaveTask(task);
 			Finish();
 		}
 		
 		void CancelDelete()
 		{
 			if (task.ID != 0) {
-				TodoItemViewModel.DeleteTask(task);
+				TodoItemListViewModel.DeleteTask(task);
 			}
 			Finish();
 		}

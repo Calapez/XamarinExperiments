@@ -9,10 +9,11 @@
     <Import_RootNamespace>Tasky.Shared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)App.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Daos\TodoDatabaseDao.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\TodoItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Repositories\TodoItemRepository.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\TodoItemViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\TodoItemListViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Models\" />
